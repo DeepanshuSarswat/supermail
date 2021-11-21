@@ -1,0 +1,78 @@
+.email__list {
+  position: relative;
+}
+
+.email__list__seting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid whitesmoke;
+  position: sticky;
+  top: 81px;
+  background-color: white;
+  z-index: 400;
+}
+.email__list__seting__right {
+  padding-right: 16px;
+}
+.email__card {
+  border-bottom: 3px solid whitesmoke;
+  padding: 0px 11px;
+}
+.email__card__icon {
+  color: #5f6368 !important;
+}
+.email_card__child {
+  /* padding: 0px 16px; */
+  display: flex;
+  position: relative;
+}
+.email__card_primary {
+  display: flex;
+  align-items: center;
+  width: 251px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  padding-left: 5px;
+  margin-right: 16px;
+  /* border-bottom: 3px solid #d93025; */
+
+  cursor: pointer;
+}
+.email__card_primary::before {
+  background-color: #d93025;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  width: 245px;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 3px;
+  left: 0;
+  margin: 0 8px;
+  position: absolute;
+  right: 0;
+}
+.email__card_primary > .email__card__icon {
+  color: #d93025 !important;
+}
+.email__card_primary:hover {
+  background-color: #f3f4f6;
+}
+
+.email__card__promotion {
+  width: 251px;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  padding-left: 8px;
+}
+.email__card__promotion:hover {
+  cursor: pointer;
+  background-color: #f3f4f6;
+  color: black;
+}
+.Email__list__data:hover {
+  border-top: 1px solid whitesmoke;
+  box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.24);
+}

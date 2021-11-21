@@ -1,0 +1,11 @@
+/* .sidebar__Left{zIndex: "90",
+backgroundColor: "white",
+position: "sticky",
+top: "0",} */
+
+.sidebar__Left {
+  z-index: 400;
+  background-color: white;
+  position: sticky;
+  top: 81px;
+}

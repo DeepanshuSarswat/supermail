@@ -1,0 +1,29 @@
+.MailBoxpoppup__header {
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  justify-content: space-between;
+
+  /* width: 100%; */
+  background-color: #1976d2;
+}
+.MailBox__form {
+  /* width: 100%; */
+  padding: 16px 16px;
+
+  background-color: white;
+}
+.button_and__options {
+  margin-top: 40px;
+  /* margin-bottom: -30px; */
+}
+.otherwise__emoji {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.button_and__options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

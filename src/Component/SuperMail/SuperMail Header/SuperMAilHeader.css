@@ -1,0 +1,65 @@
+.SuperMAilHeader {
+  display: flex;
+  padding: 8px;
+  padding-right: 16px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid whitesmoke;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 400;
+}
+
+/* --------------------------Left Side Start */
+.SuperMAilHeader__left {
+  display: flex;
+  align-items: center;
+}
+.Logo-text {
+  color: #4b5563;
+  padding: 0px 12px;
+  cursor: pointer;
+}
+.SuperMAilHeader__menuIcon {
+  cursor: pointer;
+}
+/* ---------------------------------Left Side End */
+
+/* --------------------------Middle Side Start */
+.SuperMAilHeader__middle {
+  display: flex;
+  align-items: center;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  width: 50%;
+  padding: 4px 4px;
+}
+.SuperMAilHeader__middle:hover {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.SuperMAilHeader__middle > input {
+  margin-left: 10px;
+  width: 100%;
+  border: 0;
+  outline: 0ch;
+  background-color: transparent;
+}
+
+.SuperMAilHeader__middle__searchbar {
+  padding: 8px;
+}
+/* --------------------------Middle Side Start */
+
+.SuperMAilHeader__right {
+  display: flex;
+  align-items: center;
+}
+.header__end__Icons {
+  /* margin-left: 20px; */
+  height: 32px !important;
+  width: 32px !important;
+  cursor: pointer;
+}
