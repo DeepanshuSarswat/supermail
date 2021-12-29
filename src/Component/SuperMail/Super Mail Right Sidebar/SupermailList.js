@@ -17,6 +17,9 @@ import SuperMailListData from "./SuperMailListData";
 import MailBoxpoppup from "../MailBoxpoppup/MailBoxpoppup";
 import { db } from "../../firebse/firebase";
 import firebase from "firebase";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectMode } from "../../../features/counter/modeSlice";
 const useStyles = makeStyles((theme) => ({
   typotext: {
     marginLeft: "16px",
@@ -48,37 +51,66 @@ function SupermailList() {
     getTodos();
   }, []);
 
+  const BackgroundMode = useSelector(selectMode);
+  const dispatch = useDispatch();
+
+  const DarkMode = {
+    syntax: "#ddd",
+    uii: "#424242",
+    ui: "#000",
+    bg: "#555",
+    boderright: "#e5e7eb",
+    inputColr: " #212121",
+    fill: "#ddd",
+    color: "#ddd",
+  };
+
+  const LightMode = {
+    syntax: "gray",
+    ui: "white",
+    uii: "white",
+    color: "#1976d2",
+    bg: "#eee",
+    boderright: "#212121",
+    inputColr: "#eef3f8",
+    fill: "rgba(0, 0, 0, 0.6)",
+  };
+  const Theme = BackgroundMode ? DarkMode : LightMode;
+
   return (
-    <div className="email__list">
-      <div className="email__list__seting">
+    <div className="email__list" style={{ backgroundColor: Theme.ui }}>
+      <div
+        className="email__list__seting"
+        style={{ backgroundColor: Theme.ui }}
+      >
         <div className="email__list__seting__left">
           <IconButton>
             {" "}
-            <Checkbox />
+            <Checkbox style={{ color: Theme.syntax }} />
           </IconButton>
           <IconButton>
-            <ArrowDropDownIcon />
+            <ArrowDropDownIcon style={{ color: Theme.syntax }} />
           </IconButton>
           <IconButton>
-            <RefreshIcon />
+            <RefreshIcon style={{ color: Theme.syntax }} />
           </IconButton>
           <IconButton>
-            <MoreVertIcon />
+            <MoreVertIcon style={{ color: Theme.syntax }} />
           </IconButton>
         </div>
         <div className="email__list__seting__right">
           <IconButton>
             {" "}
-            <ChevronLeftIcon />
+            <ChevronLeftIcon style={{ color: Theme.syntax }} />
           </IconButton>
           <IconButton>
-            <ChevronRightIcon />
+            <ChevronRightIcon style={{ color: Theme.syntax }} />
           </IconButton>
           <IconButton>
-            <KeyboardIcon />
+            <KeyboardIcon style={{ color: Theme.syntax }} />
           </IconButton>
           <IconButton>
-            <ArrowDropDownIcon />
+            <ArrowDropDownIcon style={{ color: Theme.syntax }} />
           </IconButton>
         </div>
       </div>
@@ -95,21 +127,32 @@ function SupermailList() {
             </Typography>
           </div>
           <div className="email__card__promotion">
-            <PeopleIcon className="email__card__icon" />
+            <PeopleIcon
+              className="email__card__icon"
+              style={{ color: Theme.syntax }}
+            />
             <Typography
               variant="p"
               component="div"
               className={classes.typotext}
+              style={{ color: Theme.syntax }}
             >
               Social
             </Typography>
           </div>
-          <div className="email__card__promotion">
-            <LocalOfferIcon className="email__card__icon" />
+          <div
+            className="email__card__promotion"
+            style={{ color: Theme.syntax }}
+          >
+            <LocalOfferIcon
+              className="email__card__icon"
+              style={{ color: Theme.syntax }}
+            />
             <Typography
               variant="p"
               component="div"
               className={classes.typotext}
+              style={{ color: Theme.syntax }}
             >
               Promotion
             </Typography>

@@ -21,13 +21,13 @@ import Typography from "@mui/material/Typography";
 import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { Avatar } from "@mui/material";
-
+import { selectMode } from "../../../features/counter/modeSlice";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import ReplyIcon from "@mui/icons-material/Reply";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { openMailBox } from "../../../features/counter/mailSlice";
-
+import { useDispatch } from "react-redux";
 const useStyles = makeStyles((theme) => ({
   IconButtonRightMargin: {
     marginRight: "15px",
@@ -54,6 +54,39 @@ function SuperMailDetails() {
   const selectedMails = useSelector(openMailBox);
 
   console.log(selectedMails);
+  const BackgroundMode = useSelector(selectMode);
+  const dispatch = useDispatch();
+
+  const DarkMode = {
+    syntax: "#ddd",
+    syn: "#ddd",
+    uii: "#424242",
+    ui: "#000",
+    bg: "#555",
+    boderright: "#e5e7eb",
+    inputColr: " #212121",
+    fill: "#ddd",
+    color: "#ddd",
+    heading: "white",
+    time: "lightgray",
+    times: "gray",
+  };
+
+  const LightMode = {
+    times: "black",
+    time: "#5f6368",
+    heading: "#202124",
+    syn: "black",
+    syntax: "gray",
+    ui: "white",
+    uii: "white",
+    color: "#1976d2",
+    bg: "#eee",
+    boderright: "#212121",
+    inputColr: "#eef3f8",
+    fill: "rgba(0, 0, 0, 0.6)",
+  };
+  const Theme = BackgroundMode ? DarkMode : LightMode;
   return (
     <div className="SupermailDetails">
       <div className="email__list">
@@ -63,51 +96,51 @@ function SuperMailDetails() {
               className={classes.IconButtonRightMargin}
               onClick={() => navigate("/maillist")}
             >
-              <ArrowBackIcon />
+              <ArrowBackIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton className={classes.IconButtonRightMargin}>
               {" "}
-              <ArchiveIcon />
+              <ArchiveIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton className={classes.IconButtonRightMargin}>
-              <ReportGmailerrorredIcon />
+              <ReportGmailerrorredIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton className={classes.IconButtonRightMargin}>
-              <DeleteIcon />
+              <DeleteIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton className={classes.IconButtonRightMargin}>
-              <DraftsIcon />
+              <DraftsIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton className={classes.IconButtonRightMargin}>
               {" "}
-              <WatchLaterIcon />
+              <WatchLaterIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton className={classes.IconButtonRightMargin}>
-              <AddTaskIcon />
+              <AddTaskIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton className={classes.IconButtonRightMargin}>
-              <DriveFileMoveIcon />
+              <DriveFileMoveIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton className={classes.IconButtonRightMargin}>
-              <LabelIcon />
+              <LabelIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton>
-              <MoreVertIcon />
+              <MoreVertIcon style={{ color: Theme.syntax }} />
             </IconButton>
           </div>
           <div className="email__list__seting__right1">
             <IconButton>
               {" "}
-              <ChevronLeftIcon />
+              <ChevronLeftIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton>
-              <ChevronRightIcon />
+              <ChevronRightIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton>
-              <KeyboardIcon />
+              <KeyboardIcon style={{ color: Theme.syntax }} />
             </IconButton>
             <IconButton>
-              <ArrowDropDownIcon />
+              <ArrowDropDownIcon style={{ color: Theme.syntax }} />
             </IconButton>
           </div>
         </div>
@@ -117,6 +150,7 @@ function SuperMailDetails() {
           <Typography
             variant="h6"
             component="div"
+            style={{ color: Theme.heading }}
             className={classes.typeSubjectNameColor}
           >
             {selectedMails.subject}
@@ -147,6 +181,7 @@ function SuperMailDetails() {
             <Typography
               variant="h6"
               component="div"
+              style={{ color: Theme.times }}
               className={classes.email___Subject__heading__left__sender}
               sx={{ fontWeight: "bold", m: 1 }}
             >
@@ -157,6 +192,7 @@ function SuperMailDetails() {
               <Typography
                 variant="h6"
                 component="div"
+                style={{ color: Theme.time }}
                 className={classes.email___Subject__heading___right__time}
                 sx={{ fontWeight: "bold", m: 1 }}
               >
@@ -168,6 +204,7 @@ function SuperMailDetails() {
           <div className="email___Subject__heading___right">
             <Typography
               variant="h6"
+              style={{ color: Theme.time }}
               component="div"
               className={classes.email___Subject__heading___right__time}
             >
@@ -199,7 +236,12 @@ function SuperMailDetails() {
         <Typography variant="p" component="div" gutterBottom>
           Dear Deepanshu .,
         </Typography>
-        <Typography variant="p" component="div" gutterBottom>
+        <Typography
+          variant="p"
+          component="div"
+          gutterBottom
+          style={{ color: Theme.syn }}
+        >
           {selectedMails.content}
         </Typography>
       </div>

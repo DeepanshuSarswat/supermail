@@ -16,7 +16,8 @@ import firebase from "firebase";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { SelectMail } from "../../../features/counter/mailSlice";
-
+import { useSelector } from "react-redux";
+import { selectMode } from "../../../features/counter/modeSlice";
 const useStyles = makeStyles((theme) => ({
   typePrimaryColor: {
     width: "400px",
@@ -282,22 +283,47 @@ function SuperMailListData({ id, username, to, timestamp, content, subject }) {
     );
     navigate("/supermailDetail");
   };
+  const BackgroundMode = useSelector(selectMode);
+
+  const DarkMode = {
+    syntax: "#ddd",
+    uii: "#424242",
+    ui: "#000",
+    bg: "#555",
+    boderright: "#e5e7eb",
+    inputColr: " #212121",
+    fill: "#ddd",
+    color: "white",
+  };
+
+  const LightMode = {
+    syntax: "black",
+    ui: "white",
+    uii: "white",
+    color: "black",
+    bg: "#eee",
+    boderright: "#212121",
+    inputColr: "#eef3f8",
+    fill: "rgba(0, 0, 0, 0.6)",
+  };
+  const Theme = BackgroundMode ? DarkMode : LightMode;
 
   return (
     <div className="SuperMailListData">
       {console.log(id)}
       <div className="SuperMailListData__icon__start">
         <IconButton>
-          <Checkbox />
+          <Checkbox style={{ color: Theme.syntax }} />
         </IconButton>
         <IconButton>
-          <StarOutlineIcon />
+          <StarOutlineIcon style={{ color: Theme.syntax }} />
         </IconButton>
       </div>
 
       <div
         className="SuperMailListData__Subject"
         onClick={openMail}
+        style={{ color: Theme.syntax }}
         // onClick={() => navigate("/supermailDetail")}
       >
         <Typography
@@ -309,7 +335,11 @@ function SuperMailListData({ id, username, to, timestamp, content, subject }) {
         </Typography>
       </div>
 
-      <div className="SuperMailListData__title" onClick={openMail}>
+      <div
+        className="SuperMailListData__title"
+        onClick={openMail}
+        style={{ color: Theme.syntax }}
+      >
         <Typography
           sx={{ overflow: "hidden" }}
           sx={{ textOverflow: "ellipsis" }}

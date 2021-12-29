@@ -154,6 +154,9 @@ function MailBoxpoppup({ handleClose }) {
               value={subject}
               required
               name="Subject"
+              inputProps={{
+                maxLength: 60,
+              }}
             />
           </Box>
 
@@ -174,6 +177,9 @@ function MailBoxpoppup({ handleClose }) {
               name="Content"
               type="text"
               rows={3}
+              inputProps={{
+                maxLength: 400,
+              }}
             />
           </Box>
           <div className="button_and__options">

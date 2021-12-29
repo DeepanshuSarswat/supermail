@@ -6,6 +6,7 @@ top: "0",} */
 .sidebar__Left {
   z-index: 400;
   background-color: white;
+  /* background-color: black; */
   position: sticky;
   top: 81px;
 }
